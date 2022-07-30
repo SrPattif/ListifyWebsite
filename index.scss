@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap');
+
+body {
+  font-family: "Poppins";
+  background: #dde5f4;
+  margin: 0em;
+  padding: 0em;
+}
+
+.notification {
+  padding: 0.5em 0em 0em 0em;
+  //background-color: #1DB954;
+  background: rgb(20, 110, 51);
+  background: linear-gradient(4deg, rgba(20, 110, 51, 1) 0%, rgba(22, 129, 59, 1) 49%, rgba(29, 185, 84, 1) 100%);
+  backdrop-filter: blur(4px);
+  //margin: 0 auto;
+
+  width: 100%;
+  justify-content: center;
+
+  color: #f1f1f1;
+
+  .top {
+    text-align: left;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .bottom {
+    margin: 0.5em 0 0 0;
+    padding: 0.2em;
+    text-align: left;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+
+    //background-color: #16813b;
+
+    .media-controller {
+      text-align: center;
+
+      .device-name {
+        //font-weight: bold;
+        font-size: 14px;
+
+        background-color: #146e33;
+        border-radius: 10px;
+        padding: 4px;
+      }
+
+      span {
+        i {
+          font-size: 1em;
+          cursor: pointer;
+          margin: 0.5em 1em 0.5em 1em;
+        }
+      }
+    }
+  }
+
+  .song-image {
+    margin: 0 1em 0 0;
+    width: 54px;
+    height: 54px;
+  }
+
+  img {
+    border-radius: 6px;
+  }
+}
+
+.header {
+  margin: 0 0 0 0;
+  padding: 0.5em 0 0.5em 0;
+  text-align: center;
+  background-color: rgba(20, 110, 51, 1);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.page-content {
+  margin: 1em;
+}
+
+.spotify-login-button {
+  margin: 0 4em 0 4em;
+  background-color: rgb(26, 141, 66);
+  padding: 0.3em 1em 0.3em 1em;
+  border-radius: 9px;
+  cursor: pointer;
+  color: white;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.central-message {
+  text-align: center;
+  padding: 1em;
+  border: #9e9e9e 1px solid;
+  border-radius: 1em;
+  display: block;
+}
+
+.footer {
+  text-align: center;
+  color: #9398a1;
+
+  a {
+    color: #9398a1;
+    text-decoration: none;
+  }
+
+  span {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+body {
+  font-family: "Poppins";
+  background: #dde5f4;
+  margin: 0em;
+  padding: 0em;
+}
+
+.header {
+  margin: 0 0 0 0;
+  padding: 0.5em 0 0.5em 0;
+  text-align: center;
+  background-color: rgb(20, 110, 51);
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.pageContent {
+  margin: 1em;
+  display: inline;
+  text-align: center;
+  justify-content: center;
+}
+.pageContent .top {
+  font-size: 1em;
+}
+.pageContent .top h2 {
+  font-weight: normal;
+  margin: 0;
+}
+.pageContent .top .disconnect {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+hr {
+  width: 20%;
+  color: #ffffff;
+}
+
+.timeSelector {
+  justify-content: center;
+}
+.timeSelector .selected {
+  background-color: rgba(13, 75, 35, 0.5);
+  border-radius: 10px;
+}
+.timeSelector ul {
+  background-color: rgb(20, 110, 51);
+  color: white;
+  border-radius: 10px;
+  display: table;
+  margin: 1em auto;
+  padding: 0.5em 0 0.5em 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  list-style: none;
+}
+.timeSelector ul li {
+  cursor: pointer;
+  margin: 1em;
+  padding: 0.3em;
+  display: inline;
+}
+.timeSelector ul li a {
+  text-decoration: none;
+  color: white;
+}
+.timeSelector ul li:hover {
+  background-color: rgba(13, 75, 35, 0.5);
+  border-radius: 10px;
+}
+
+.centerContent {
+  margin-top: 3em;
+  -webkit-animation: fadeIn 1s ease-in 0s 1 normal forwards;
+          animation: fadeIn 1s ease-in 0s 1 normal forwards;
+}
+.centerContent .listenedArtist {
+  margin-bottom: 3em;
+}
+.centerContent .listenedArtist img {
+  border-radius: 9px;
+  width: 128px;
+  height: 128px;
+}
+.centerContent .listenedArtist .artistName {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.centerContent .userPlaylists {
+  margin-bottom: 3em;
+}
+.centerContent .userPlaylists .playlistsAmount {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.centerContent .userPlaylists .playlistsDescription {
+  font-size: 1em;
+}
+.centerContent .listenedSong .songImage {
+  border-radius: 9px;
+  width: 128px;
+  height: 128px;
+}
+.centerContent .listenedSong .songName,
+.centerContent .listenedSong .songAuthor {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.centerContent .viewAllButton {
+  font-size: 14px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  font-family: "Poppins";
+  border: none;
+  padding: 0.5em 1em 0.5em 1em;
+  width: 15%;
+  background-color: white;
+  color: rgb(26, 26, 26);
+  cursor: pointer;
+  border-radius: 8px;
+}
+.centerContent .viewAllButton i {
+  margin-left: auto;
+  margin-right: 0;
+}
+.centerContent .viewAllButton:hover {
+  background-color: lightgray;
+}
+
+.errorNotification {
+  filter: blur(0px);
+  width: 100%;
+  text-align: center;
+  background-color: #D22B2B;
+  padding: 1em;
+  color: white;
+}
+.errorNotification a {
+  text-decoration: none;
+  color: white;
+}
+
+.listeningNotification {
+  padding: 0.5em 0em 0em 0em;
+  background: rgb(20, 110, 51);
+  background: linear-gradient(180deg, rgb(20, 110, 51) 0%, rgb(22, 129, 59) 49%, rgb(26, 167, 75) 100%);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  width: 100%;
+  justify-content: center;
+  color: #f1f1f1;
+}
+.listeningNotification .top {
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.listeningNotification .top .text .songName {
+  font-weight: bold;
+}
+.listeningNotification .top .text .songAuthor {
+  font-size: 14px;
+}
+.listeningNotification .bottom {
+  margin: 0.5em 0 0.5em 0;
+  padding: 0.2em;
+  padding-bottom: 1em;
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.listeningNotification .bottom i {
+  margin-right: 0.2em;
+}
+.listeningNotification .bottom .deviceName {
+  margin-left: 0.2em;
+  font-size: 14px;
+  background-color: #146e33;
+  border-radius: 10px;
+  padding: 4px;
+}
+.listeningNotification .song-image {
+  margin: 0 1em 0 0;
+  width: 54px;
+  height: 54px;
+}
+.listeningNotification img {
+  border-radius: 6px;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    filter: blur(2px);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    filter: blur(2px);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=index.css.map */
