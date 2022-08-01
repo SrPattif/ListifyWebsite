@@ -196,13 +196,23 @@
             ?>
 
             <?php
-                $userPlaylists = getUserPlaylists($accessToken);
+                $userPlaylists = getUserPlaylists($accessToken); ?> <br><br> <?php
+                //echo('RETORNO DAS PLAYLISTS -> ' . json_encode($userPlaylists));
             ?>
             <div class="userPlaylists">
                 <br><span class="playlistsAmount"><?php echo($userPlaylists->total); ?> playlists</span>
                 <br><span class="playlistsDescription">suas ou seguindo.</span>
             </div>
         </div>
+    </div>
+
+    <div class="footer">
+        Desenvolvido por Gustavo Antonio<br>
+        <a href="https://www.instagram.com/ogustavo.a/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/ogustavo_a"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://github.com/SrPattif"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <br>
+        <span>manda uma coisinha lá :)</span>
     </div>
 
     <script>

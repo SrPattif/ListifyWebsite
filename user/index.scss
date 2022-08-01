@@ -244,6 +244,21 @@ hr {
     }
 }
 
+.footer {
+    text-align: center;
+    color: #9398a1;
+    margin-bottom: 1em;
+
+    a {
+        color: #9398a1;
+        text-decoration: none;
+    }
+
+    span {
+        font-size: 10px;
+    }
+}
+
 @keyframes fadeIn {
     0% {
       filter: blur(2px);

@@ -20,7 +20,7 @@ body {
 }
 
 .pageContent {
-    //filter: blur(4px);
+    animation: fadeIn 1s ease-in 0s 1 normal forwards;
     margin: 1em;
 
     display: inline;
@@ -34,59 +34,11 @@ body {
             text-decoration: none;
             color: black;
         }
-
-        .spotify-view-button {
-            border: none;
-            font-family: "Poppins";
-            font-size: 1em;
-            padding: 0.6em 6em 0.6em 6em;
-            background-color: rgb(26, 141, 66);
-            border-radius: 9px;
-            cursor: pointer;
-            color: white;
-            margin-bottom: 1em;
-
-            span {
-                font-weight: bold;
-            }
-        }
-
-        .spotify-view-button:hover {
-            background-color: rgb(20, 110, 52);
-        }
-
-        .share-button {
-            border: none;
-            font-family: "Poppins";
-            font-size: 1em;
-            padding: 0.6em 6em 0.6em 6em;
-            background-color: white;
-            border-radius: 9px;
-            cursor: pointer;
-            color: rgb(0, 0, 0);
-
-            span {
-                font-weight: bold;
-            }
-        }
-
-        .share-button:hover {
-            background-color: rgb(233, 233, 233);
-        }
-
-        h2 {
-            font-weight: bold;
-            margin: 0;
-        }
-
-        span {
-            font-weight: bold;
-        }
     }
 }
 
+
 .centerContent {
-    animation: fadeIn 1s ease-in 0s 1 normal forwards;
     text-align: center;
     align-items: center;
     align-content: center;
@@ -116,12 +68,6 @@ body {
             }
         }
     }
-}
-
-.artistImage {
-    border-radius: 9px;
-    width: 128px;
-    height: 128px;
 }
 
 hr {
@@ -228,6 +174,150 @@ hr {
     span {
         font-size: 10px;
     }
+}
+
+/*
+TO-DO:
+- Centralizar elemento imageGenerated de forma decente kk
+
+*/
+
+.imageGenerated {
+    margin-left: 25%;
+    border-radius: 8px;
+    width: 45%;
+    height: 25%;
+
+    color: white;
+    padding: 1.5em 0 1.5em 0;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        border-top: 1px solid #dadada;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+
+        img {
+            width: 54px;
+            height: 54px;
+            border-radius: 9px;
+        }
+    }
+
+    tr:last-child {
+        border-bottom: 1px solid #dadada;
+    }
+
+    .listifyInfo,
+    .listifyUrl {
+        color: rgb(240, 240, 240);
+    }
+
+    .mostListenedImage {
+        border-radius: 9px;
+        width: 128px;
+        height: 128px;
+    }
+
+    h2 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .userName {
+        font-weight: bold;
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.customSelect {
+    justify-content: center;
+
+    display: inline;
+    text-align: center;
+    justify-content: center;
+
+    .selected {
+        background-color: rgba(13, 75, 35, 0.5);
+        border-radius: 10px;
+    }
+
+    ul {
+        background-color: rgba(20, 110, 51, 1);
+        color: white;
+        border-radius: 10px;
+
+        display: table;
+        margin: 1em auto;
+
+        padding: 0.5em 0 0.5em 0;
+        width: fit-content;
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            margin: 1em;
+            padding: 0.3em;
+            display: inline;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        li:hover {
+            background-color: rgba(13, 75, 35, 0.5);
+            border-radius: 10px;
+        }
+    }
+}
+
+.greenGradient {
+    background: rgb(20, 110, 51);
+    background: linear-gradient(145deg, rgba(20, 110, 51, 1) 0%, rgba(22, 129, 59, 1) 49%, rgba(29, 185, 84, 1) 100%);
+}
+
+.vanusaGradient {
+    background: rgb(137, 33, 107);
+    background: linear-gradient(145deg, rgba(137, 33, 107, 1) 0%, rgba(218, 68, 83, 1) 100%);
+}
+
+.shiftyGradient {
+    background: rgb(162, 171, 88);
+    background: linear-gradient(145deg, rgba(162, 171, 88, 1) 0%, rgba(99, 99, 99, 1) 100%);
+}
+
+.summerGradient {
+    background: rgb(255,0,14);
+    background: linear-gradient(145deg, rgba(255,0,14,1) 0%, rgba(115,208,91,1) 100%);
+}
+
+.share-button {
+    margin-top: 2em;
+    border: none;
+    font-family: "Poppins";
+    font-size: 1em;
+    padding: 0.6em 6em 0.6em 6em;
+    background-color: white;
+    border-radius: 9px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+
+    span {
+        font-weight: bold;
+    }
+}
+
+.share-button:hover {
+    background-color: rgb(233, 233, 233);
 }
 
 @keyframes fadeIn {

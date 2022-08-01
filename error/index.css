@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+body {
+  font-family: "Poppins";
+  background: #cc0000;
+  margin: 0em;
+  padding: 0em;
+  color: white;
+}
+
+.pageContent {
+  text-align: center;
+  margin-top: 20%;
+  -webkit-animation: fadeIn 1s ease-in 0s 1 normal forwards;
+          animation: fadeIn 1s ease-in 0s 1 normal forwards;
+}
+.pageContent .errorTitle {
+  font-weight: bold;
+}
+.pageContent .errorDescription {
+  color: rgb(230, 230, 230);
+}
+.pageContent .errorCode {
+  background-color: #a80000;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 8px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+}
+.pageContent .mainMenu {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0px;
+}
+.pageContent .mainMenu:hover {
+  -webkit-animation: spacingGreater 1s ease-in 0s 1 normal forwards;
+          animation: spacingGreater 1s ease-in 0s 1 normal forwards;
+}
+
+@-webkit-keyframes spacingGreater {
+  0% {
+    letter-spacing: 0px;
+  }
+  100% {
+    letter-spacing: 1px;
+  }
+}
+
+@keyframes spacingGreater {
+  0% {
+    letter-spacing: 0px;
+  }
+  100% {
+    letter-spacing: 1px;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    filter: blur(2px);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    filter: blur(2px);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=index.css.map */

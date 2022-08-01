@@ -83,7 +83,8 @@
 
     <div class="pageContent">
         <div class="top">
-        <a href="<?php echo($listifyDomain); ?>/user/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>" class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br><br>
+            <a href="<?php echo($listifyDomain); ?>/user/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>"
+                class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br><br>
             <?php
                 $topArtists = getUserTOPArtists($accessToken, $timeType);
                 if(isset($topArtists)) {
@@ -121,42 +122,47 @@
             ?>
             <br> <br>
             <a href="<?php echo($artistURI); ?>"><button class="spotify-view-button" id="spotify-view-button">
-                <i class="fa fa-spotify" aria-hidden="true"></i> Ver no <span>Spotify</span>
-            </button></a>
+                    <i class="fa fa-spotify" aria-hidden="true"></i> Ver no <span>Spotify</span>
+                </button></a>
             <br>
-            <a href="<?php echo($artistURI); ?>"><button class="share-button" id="share-button">
-            <i class="fa fa-picture-o" aria-hidden="true"></i> Compartilhar
-            </button></a>
+            <a href="./share/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>"><button class="share-button" id="share-button">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i> Compartilhar
+                </button></a>
         </div>
         <br>
         <hr>
 
         <div class="centerContent">
-            <?php
-                $artistInformation = getArtistInformation($accessToken, $artistID);
-                if(isset($artistInformation)) {
-                    if(isset($artistInformation->error)) {
-                        header('Location: ./');
-                        exit();
+            <div class="artistsList">
+                <?php
+                    for($i = 0; $i < 10; $i++) {
+                        $topName = $topArtists->items[$i]->name;
+                        $topImage = $topArtists->items[$i]->images[0]->url;
+
+                        ?>
+                <div class="artistItem">
+                    <div class="title">
+                        <span class="position"><?php echo($i + 1); ?>º Lugar</span>
+                    </div>
+                    <br>
+                    <img src="<?php echo($topImage); ?>" alt="<?php echo($i + 1); ?>º Lugar">
+                    <br>
+                    <p class="topArtistName"><?php echo($topName); ?><br></p>
+                </div>
+                <?php
                     }
-
-                    $artistFollowers = $artistInformation->followers->total;
-                    $artistPopularity = $artistInformation->popularity;
-            ?>
-            <div class="artistFollowers">
-                <br><span class="followersAmount"><?php echo(str_replace(',', '.', number_format($artistFollowers))); ?></span>
-                <br><span class="followersDescription">seguidores</span>
+                ?>
             </div>
-
-            <div class="artistPopularity">
-                <br><span class="popularityAmount"><?php echo($artistPopularity) ?></span>
-                <br><span class="popularityDescription">popularidade</span>
-            </div>
-
-            <?php
-                }
-            ?>
         </div>
+    </div>
+
+    <div class="footer">
+        Desenvolvido por Gustavo Antonio<br>
+        <a href="https://www.instagram.com/ogustavo.a/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/ogustavo_a"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://github.com/SrPattif"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <br>
+        <span>manda uma coisinha lá :)</span>
     </div>
 </body>
 

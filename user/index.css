@@ -198,6 +198,19 @@ hr {
   border-radius: 6px;
 }
 
+.footer {
+  text-align: center;
+  color: #9398a1;
+  margin-bottom: 1em;
+}
+.footer a {
+  color: #9398a1;
+  text-decoration: none;
+}
+.footer span {
+  font-size: 10px;
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     filter: blur(2px);
