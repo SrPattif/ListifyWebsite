@@ -20,6 +20,7 @@
 
     <!-- Bibliotecas Externas -->
     <script src="https://use.fontawesome.com/8aae9daeac.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -190,11 +191,14 @@
         <a href="https://github.com/SrPattif"><i class="fa fa-github" aria-hidden="true"></i></a>
         <br>
         <span>manda uma coisinha lá :)</span>
+
+        <img id="captured" src="" alt="">
     </div>
 
     <script src="../../../libs/changeTheme.js"></script>
     <script src="../../../libs/shareButton.js"></script>
     <script src="../../../libs/html2canvas.js"></script>
+    <script src="../../../libs/canvas-to-blob.min.js"></script>
 </body>
 
 </html>
