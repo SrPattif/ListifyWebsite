@@ -88,7 +88,8 @@
                 class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br><br>
 
             <div class="imageGenerated greenGradient" id="imageGenerated">
-                <?php
+                <div class="insideImage">
+                    <?php
                     $topArtists = getUserTOPArtists($accessToken, $timeType);
                     $userInformation = getUserInformation($accessToken);
                     if(isset($userInformation->error)) {
@@ -108,55 +109,58 @@
                         $artistImage = $topArtists->items[0]->images[0]->url;
                         $artistURI = $topArtists->items[0]->uri;
                 ?>
-                <img crossorigin="anonymous" class="mostListenedImage" src="<?php echo($artistImage); ?>" alt="<?php echo($artistName); ?>">
-                <br>
-                <h2><?php echo($artistName); ?></h2>
-                <span>é o artista mais ouvido de <span class="userName"><?php echo($userName); ?></span><?php
+                    <img crossorigin="anonymous" class="mostListenedImage" src="<?php echo($artistImage); ?>"
+                        alt="<?php echo($artistName); ?>">
+                    <br>
+                    <h2><?php echo($artistName); ?></h2>
+                    <span>é o artista mais ouvido de <span class="userName"><?php echo($userName); ?></span><?php
             if($timeType == "long_term") {
                 ?>!
-                    <?php
+                        <?php
             } else if($timeType == "medium_term") {
                 ?>
-                    <br>nos últimos <span class="bold">6 meses</span>!
-                    <?php
+                        <br>nos últimos <span class="bold">6 meses</span>!
+                        <?php
             } else if($timeType == "short_term") {
                 ?>
-                    <br>no <span class="bold">último mês</span>!
-                    <?php
+                        <br>no <span class="bold">último mês</span>!
+                        <?php
             }
             ?></span>
-                <?php
+                    <?php
                     }
                 ?>
-                <hr>
-                <br>
+                    <hr>
+                    <br>
 
-                <table class="artistsList">
-                    <tr>
-                        <th>Posição</th>
-                        <th> </th>
-                        <th>Artista</th>
-                    </tr>
-                    <?php
+                    <table class="artistsList">
+                        <tr>
+                            <th>Posição</th>
+                            <th> </th>
+                            <th>Artista</th>
+                        </tr>
+                        <?php
                         for($i = 0; $i < 10; $i++) {
                             $artistName = $topArtists->items[$i]->name;
                             $artistID = $topArtists->items[$i]->id;
                             $artistImage = $topArtists->items[$i]->images[0]->url;
                     ?>
-                    <tr>
-                        <td><?php echo($i+1); ?></td>
-                        <td><img crossorigin="anonymous" src="<?php echo($artistImage); ?>" alt="<?php echo($artistName); ?>"></td>
-                        <td><?php echo($artistName); ?></td>
-                    </tr>
+                        <tr>
+                            <td class="bold"><?php echo($i+1); ?>º</td>
+                            <td><img crossorigin="anonymous" src="<?php echo($artistImage); ?>"
+                                    alt="<?php echo($artistName); ?>"></td>
+                            <td><?php echo($artistName); ?></td>
+                        </tr>
 
-                    <?php
+                        <?php
                         }
                     ?>
-                </table>
-                <br>
-                <span class="listifyInfo">Crie e compartilhe o seu!</span>
-                <br>
-                <span class="listifyUrl">listify.payoo.com.br</span>
+                    </table>
+                    <br>
+                    <span class="listifyInfo">Crie e compartilhe o seu!</span>
+                    <br>
+                    <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
+                </div>
             </div>
 
             <button class="share-button" id="shareButton">

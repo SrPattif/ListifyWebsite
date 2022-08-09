@@ -183,13 +183,16 @@ TO-DO:
 */
 
 .imageGenerated {
-    margin-left: 25%;
-    border-radius: 8px;
-    width: 45%;
+    //margin-left: 25%;
+    //border-radius: 8px;
+    .insideImage {
+        padding: 1.5em 0 1.5em 0;
+    }
+
+    width: 95%;
     height: 25%;
 
     color: white;
-    padding: 1.5em 0 1.5em 0;
 
     table {
         width: 100%;
@@ -197,7 +200,7 @@ TO-DO:
     }
 
     td {
-        border-top: 1px solid #dadada;
+        //border-top: 1px solid #dadada;
         padding-top: 0.3em;
         padding-bottom: 0.3em;
 
@@ -208,9 +211,11 @@ TO-DO:
         }
     }
 
+    /*
     tr:last-child {
         border-bottom: 1px solid #dadada;
     }
+    */
 
     .listifyInfo,
     .listifyUrl {
@@ -318,6 +323,10 @@ TO-DO:
 
 .share-button:hover {
     background-color: rgb(233, 233, 233);
+}
+
+.bold {
+    font-weight: bold;
 }
 
 @keyframes fadeIn {

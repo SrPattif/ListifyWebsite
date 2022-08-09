@@ -129,18 +129,25 @@
                 }
 
                 $userName = $userInformation->display_name;
+                $userName = explode(" ", $userName)[0];
             ?>
             <h2>Boa tarde, <b><?php echo($userName); ?></b>! &#128075</h2>
-            Você está conectado com <b>Spotify</b>. <span class="disconnect">Sair</span><br><br>Confira suas estatísticas
-            abaixo! ;)
-        </div>
+            Você está conectado com <b>Spotify</b>. <span class="disconnect">Sair</span><br><br>
 
-        <div class="timeSelector">
-            <ul>
-                <li <?php if($timeType == 'short_term') {?> class="selected" <?php } ?>> <a href="./?access-token=<?php echo($accessToken) ?>&time=short">1 mês</a></li>
-                <li <?php if($timeType == 'medium_term') {?> class="selected" <?php } ?>> <a href="./?access-token=<?php echo($accessToken) ?>&time=medium">6 meses</a></li>
-                <li <?php if($timeType == 'long_term') {?> class="selected" <?php } ?>> <a href="./?access-token=<?php echo($accessToken) ?>&time=long">Todo o Tempo</a></li>
-            </ul>
+            <div class="timeSelector">
+                <ul>
+                    <li <?php if($timeType == 'short_term') {?> class="selected" <?php } ?>> <a
+                            href="./?access-token=<?php echo($accessToken) ?>&time=short">1 mês</a></li>
+                    <li <?php if($timeType == 'medium_term') {?> class="selected" <?php } ?>> <a
+                            href="./?access-token=<?php echo($accessToken) ?>&time=medium">6 meses</a></li>
+                    <li <?php if($timeType == 'long_term') {?> class="selected" <?php } ?>> <a
+                            href="./?access-token=<?php echo($accessToken) ?>&time=long">Todo o Tempo</a></li>
+                </ul>
+            </div>
+
+            Confira suas estatísticas
+            abaixo! ;)
+
         </div>
 
         <hr>
@@ -169,7 +176,16 @@
             </div>
 
             <?php
-                }  
+                } else {
+            ?>
+            <div class="listenedArtist">
+                <img src="../images/unknown.jpg" alt="Most Listened Artist">
+                <br><span class="artistName">desconhecido</span>
+                <br><span class="artistDescription">não há informações sobre o seu artista mais ouvido.</span>
+            </div>
+            <?php
+
+                }
             ?>
 
             <?php
@@ -181,10 +197,12 @@
                     }
                     $trackName = $topTracks->items[0]->name;
                     $trackImage = $topTracks->items[0]->album->images[0]->url;
+                    $trackAuthor = $topTracks->items[0]->album->artists[0]->name;
             ?>
             <div class="listenedSong">
-                <img class="songImage" src="<?php echo($trackImage) ?>" alt="Most Listened Artist">
-                <br><span class="songName"><?php echo($trackName) ?></span>
+                <img class="songImage" src="<?php echo($trackImage) ?>" alt="Most Listened Song">
+                <br><span class="songName"><?php echo($trackName) ?></span> de <span
+                    class="songName"><?php echo($trackAuthor) ?></span>
                 <br><span class="songDescription">é a sua música mais tocada.</span>
                 <br>
                 <button class="viewAllButton">
@@ -192,17 +210,30 @@
                 </button>
             </div>
             <?php
+                } else {
+            ?>
+
+            <div class="listenedSong">
+                <img class="songImage" src="../images/unknown.jpg" alt="Most Listened Artist">
+                <br><span class="songName">desconhecido</span>
+                <br><span class="songDescription">não há informações sobre a sua música mais tocada.</span>
+            </div>
+
+            <?php
                 }
             ?>
 
             <?php
                 $userPlaylists = getUserPlaylists($accessToken); ?> <br><br> <?php
-                //echo('RETORNO DAS PLAYLISTS -> ' . json_encode($userPlaylists));
+                if(isset($userPlaylists->total) && $userPlaylists->total > 0) {
             ?>
             <div class="userPlaylists">
                 <br><span class="playlistsAmount"><?php echo($userPlaylists->total); ?> playlists</span>
                 <br><span class="playlistsDescription">suas ou seguindo.</span>
             </div>
+            <?php
+                }
+            ?>
         </div>
     </div>
 
@@ -216,10 +247,11 @@
     </div>
 
     <script>
-        var topArtist = document.getElementById('topartist');
-        topArtist.addEventListener('click', () => {
-            window.location.href = '<?php echo($listifyDomain); ?>/user/topartist/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>';
-        });
+    var topArtist = document.getElementById('topartist');
+    topArtist.addEventListener('click', () => {
+        window.location.href =
+            '<?php echo($listifyDomain); ?>/user/topartist/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>';
+    });
     </script>
 </body>
 

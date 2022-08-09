@@ -22,6 +22,10 @@ shareButton.addEventListener('click', () => {
         })
     })*/
 
+    shareButton.disabled = true;
+
+    alert("w-" + $('#imageGenerated').width() + "px h-" + $('#imageGenerated').height() + "px");
+
     getScreenshotOfElement(printar, 0, 0, $('#imageGenerated').width(), $('#imageGenerated').height(), async function (data) {
         // in the data variable there is the base64 image
         // exmaple for displaying the image in an <img>
@@ -39,9 +43,7 @@ shareButton.addEventListener('click', () => {
         var filesArray = [file];
         if(navigator.canShare && navigator.canShare({ files: filesArray })) {
             navigator.share({
-              text: 'some_text',
-              files: filesArray,
-              title: 'some_title'
+              files: filesArray
             });
           }
     });

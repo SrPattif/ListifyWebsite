@@ -148,11 +148,16 @@ TO-DO:
 
 */
 .imageGenerated {
-  margin-left: 25%;
-  border-radius: 8px;
-  width: 45%;
+  width: 95%;
   height: 25%;
   color: white;
+  /*
+  tr:last-child {
+      border-bottom: 1px solid #dadada;
+  }
+  */
+}
+.imageGenerated .insideImage {
   padding: 1.5em 0 1.5em 0;
 }
 .imageGenerated table {
@@ -160,7 +165,6 @@ TO-DO:
   border-collapse: collapse;
 }
 .imageGenerated td {
-  border-top: 1px solid #dadada;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
 }
@@ -168,9 +172,6 @@ TO-DO:
   width: 54px;
   height: 54px;
   border-radius: 9px;
-}
-.imageGenerated tr:last-child {
-  border-bottom: 1px solid #dadada;
 }
 .imageGenerated .listifyInfo,
 .imageGenerated .listifyUrl {
@@ -267,6 +268,10 @@ TO-DO:
 
 .share-button:hover {
   background-color: rgb(233, 233, 233);
+}
+
+.bold {
+  font-weight: bold;
 }
 
 @-webkit-keyframes fadeIn {
