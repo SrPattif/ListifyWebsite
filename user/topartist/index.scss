@@ -90,32 +90,6 @@ body {
     text-align: center;
     align-items: center;
     align-content: center;
-
-    .artistsList {
-        .artistItem {
-            background-color: #dde5f4;
-            border-radius: 20px;
-            margin: 0 4em 2em 4em;
-
-            p {
-                margin: 0;
-                letter-spacing: 1px;
-            }
-
-            .title {
-                font-weight: bold;
-                padding: 0.5em 0 0.5em 0;
-                border-radius: 9px;
-                background-color: rgb(238, 238, 238);
-            }
-
-            img {
-                width: 90px;
-                height: 90px;
-                border-radius: 8px;
-            }
-        }
-    }
 }
 
 .artistImage {
@@ -228,6 +202,186 @@ hr {
     span {
         font-size: 10px;
     }
+}
+
+// 
+
+/*
+TO-DO:
+- Centralizar elemento imageContainer de forma decente kk
+
+*/
+
+#imageGenerated {
+    clear: both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 25px auto;
+  
+  width: fit-content;
+}
+
+.imageContainer {
+    text-align: center;
+
+    background: rgb(20, 110, 51);
+    background: linear-gradient(145deg, rgba(20, 110, 51, 1) 0%, rgba(22, 129, 59, 1) 49%, rgba(29, 185, 84, 1) 100%);
+    //margin-left: 25%;
+    //border-radius: 8px;
+    margin: 0 auto;
+    padding: 2em;
+
+    //width: 1080px;
+    //height: 1920px;
+    zoom: 150%;
+
+    color: white;
+
+    /*
+    tr:last-child {
+        border-bottom: 1px solid #dadada;
+    }
+    */
+
+
+}
+
+.artistName {
+    text-align: center;
+    font-weight: bold;
+}
+
+tr {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    //border-top: 1px solid #dadada;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+
+    img {
+        width: 54px;
+        height: 54px;
+        border-radius: 9px;
+    }
+}
+
+.artistsList {
+    margin: 0 auto;
+    width: 500px;
+    border-collapse: collapse;
+}
+
+.userName {
+    font-weight: bold;
+}
+
+.listifyInfo,
+    .listifyUrl {
+        color: rgb(240, 240, 240);
+    }
+
+.mostListenedImage {
+    border-radius: 9px;
+    width: 128px;
+    height: 128px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.customSelect {
+    justify-content: center;
+
+    display: inline;
+    text-align: center;
+    justify-content: center;
+
+    .selected {
+        background-color: rgba(13, 75, 35, 0.5);
+        border-radius: 10px;
+    }
+
+    ul {
+        background-color: rgba(20, 110, 51, 1);
+        color: white;
+        border-radius: 10px;
+
+        display: table;
+        margin: 1em auto;
+
+        padding: 0.5em 0 0.5em 0;
+        width: fit-content;
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            margin: 1em;
+            padding: 0.3em;
+            display: inline;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        li:hover {
+            background-color: rgba(13, 75, 35, 0.5);
+            border-radius: 10px;
+        }
+    }
+}
+
+.greenGradient {
+    background: rgb(20, 110, 51);
+    background: linear-gradient(145deg, rgba(20, 110, 51, 1) 0%, rgba(22, 129, 59, 1) 49%, rgba(29, 185, 84, 1) 100%);
+}
+
+.vanusaGradient {
+    background: rgb(137, 33, 107);
+    background: linear-gradient(145deg, rgba(137, 33, 107, 1) 0%, rgba(218, 68, 83, 1) 100%);
+}
+
+.shiftyGradient {
+    background: rgb(162, 171, 88);
+    background: linear-gradient(145deg, rgba(162, 171, 88, 1) 0%, rgba(99, 99, 99, 1) 100%);
+}
+
+.summerGradient {
+    background: rgb(255,0,14);
+    background: linear-gradient(145deg, rgba(255,0,14,1) 0%, rgba(115,208,91,1) 100%);
+}
+
+.share-button {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border: none;
+    font-family: "Poppins";
+    font-size: 1em;
+    padding: 0.6em 6em 0.6em 6em;
+    background-color: white;
+    border-radius: 9px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+
+    span {
+        font-weight: bold;
+    }
+}
+
+.share-button:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.bold {
+    font-weight: bold;
 }
 
 @keyframes fadeIn {

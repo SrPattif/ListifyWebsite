@@ -1,66 +1,34 @@
-var printar = document.getElementById('imageGenerated');
+document.getElementById("shareButton").addEventListener("click", downloadImg);
 
-var shareButton = document.getElementById('shareButton');
-shareButton.addEventListener('click', () => {
-    /*
-    html2canvas(printar, { allowTaint: false }).then(function (canvas) {
-        navigator.share(canvas.toDataURL("image/png"));
-    });
-    */
+function hiddenClone(element) {
+  // Create clone of element
+  var clone = element.cloneNode(true);
 
-    /*
-    html2canvas(printar, { allowTaint: false }).then(function (canvas) {
-        var imgsrc = canvas.toDataURL("image/png");
-        console.log(imgsrc);
+  // Position element relatively within the
+  // body but still out of the viewport
+  var style = clone.style;
+  style.position = "relative";
+  style.top = window.innerHeight + "px";
+  style.left = 0;
+  // Append clone to body and return the clone
+  document.body.appendChild(clone);
+  return clone;
+}
 
-        const blob = fetch(imgsrc).blob();
-        const file = new File([blob], 'fileName.png', { type: blob.type });
-        navigator.share({
-            title: 'Hello',
-            text: 'Check out this image!',
-            files: [file],
-        })
-    })*/
-
-    shareButton.disabled = true;
-
-    alert("w-" + $('#imageGenerated').width() + "px h-" + $('#imageGenerated').height() + "px");
-
-    getScreenshotOfElement(printar, 0, 0, $('#imageGenerated').width(), $('#imageGenerated').height(), async function (data) {
-        // in the data variable there is the base64 image
-        // exmaple for displaying the image in an <img>
-        $("img#captured").attr("src", "data:image/png;base64," + data);
-
-        var src = "data:image/png;base64," + data;
-        var image = new Image();
-        image.id = "pic";
-        image.src = src;
-
-        var blob = dataURLtoBlob(src)
-
-        console.log(blob);
-        var file = new File([blob], "picture.png", {type: 'image/png'});
-        var filesArray = [file];
-        if(navigator.canShare && navigator.canShare({ files: filesArray })) {
-            navigator.share({
-              files: filesArray
-            });
-          }
-    });
-});
-
-function getScreenshotOfElement(element, posX, posY, width, height, callback) {
-    html2canvas(element, { width: width, height: height, useCORS: true, taintTest: false, allowTaint: false }).then(function (canvas) {
-        var context = canvas.getContext('2d');
-        var imageData = context.getImageData(posX, posY, width, height).data;
-        var outputCanvas = document.createElement('canvas');
-        var outputContext = outputCanvas.getContext('2d');
-        outputCanvas.width = width;
-        outputCanvas.height = height;
-
-        var idata = outputContext.createImageData(width, height);
-        idata.data.set(imageData);
-        outputContext.putImageData(idata, 0, 0);
-        callback(outputCanvas.toDataURL().replace("data:image/png;base64,", ""));
-    });
+function downloadImg() {
+  const fileName = `top`;
+  var offScreen = document.querySelector(".imageContainer");
+  window.scrollTo(0, 0);
+  var clone = hiddenClone(offScreen);
+  // Use clone with htm2canvas and delete clone
+  html2canvas(clone, { scrollY: -window.scrollY }).then((canvas) => {
+    var dataURL = canvas.toDataURL("image/png", 1.0);
+    document.body.removeChild(clone);
+    var link = document.createElement("a");
+    link.href = dataURL;
+    link.download = `${fileName}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
 }

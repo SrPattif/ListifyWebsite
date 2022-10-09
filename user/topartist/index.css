@@ -79,26 +79,6 @@ body {
   align-items: center;
   align-content: center;
 }
-.centerContent .artistsList .artistItem {
-  background-color: #dde5f4;
-  border-radius: 20px;
-  margin: 0 4em 2em 4em;
-}
-.centerContent .artistsList .artistItem p {
-  margin: 0;
-  letter-spacing: 1px;
-}
-.centerContent .artistsList .artistItem .title {
-  font-weight: bold;
-  padding: 0.5em 0 0.5em 0;
-  border-radius: 9px;
-  background-color: rgb(238, 238, 238);
-}
-.centerContent .artistsList .artistItem img {
-  width: 90px;
-  height: 90px;
-  border-radius: 8px;
-}
 
 .artistImage {
   border-radius: 9px;
@@ -186,6 +166,165 @@ hr {
 }
 .footer span {
   font-size: 10px;
+}
+
+/*
+TO-DO:
+- Centralizar elemento imageContainer de forma decente kk
+
+*/
+#imageGenerated {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 25px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.imageContainer {
+  text-align: center;
+  background: rgb(20, 110, 51);
+  background: linear-gradient(145deg, rgb(20, 110, 51) 0%, rgb(22, 129, 59) 49%, rgb(29, 185, 84) 100%);
+  margin: 0 auto;
+  padding: 2em;
+  zoom: 150%;
+  color: white;
+  /*
+  tr:last-child {
+      border-bottom: 1px solid #dadada;
+  }
+  */
+}
+
+.artistName {
+  text-align: center;
+  font-weight: bold;
+}
+
+tr {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+td img {
+  width: 54px;
+  height: 54px;
+  border-radius: 9px;
+}
+
+.artistsList {
+  margin: 0 auto;
+  width: 500px;
+  border-collapse: collapse;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.listifyInfo,
+.listifyUrl {
+  color: rgb(240, 240, 240);
+}
+
+.mostListenedImage {
+  border-radius: 9px;
+  width: 128px;
+  height: 128px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.customSelect {
+  justify-content: center;
+  display: inline;
+  text-align: center;
+  justify-content: center;
+}
+.customSelect .selected {
+  background-color: rgba(13, 75, 35, 0.5);
+  border-radius: 10px;
+}
+.customSelect ul {
+  background-color: rgb(20, 110, 51);
+  color: white;
+  border-radius: 10px;
+  display: table;
+  margin: 1em auto;
+  padding: 0.5em 0 0.5em 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  list-style: none;
+}
+.customSelect ul li {
+  cursor: pointer;
+  margin: 1em;
+  padding: 0.3em;
+  display: inline;
+}
+.customSelect ul li a {
+  text-decoration: none;
+  color: white;
+}
+.customSelect ul li:hover {
+  background-color: rgba(13, 75, 35, 0.5);
+  border-radius: 10px;
+}
+
+.greenGradient {
+  background: rgb(20, 110, 51);
+  background: linear-gradient(145deg, rgb(20, 110, 51) 0%, rgb(22, 129, 59) 49%, rgb(29, 185, 84) 100%);
+}
+
+.vanusaGradient {
+  background: rgb(137, 33, 107);
+  background: linear-gradient(145deg, rgb(137, 33, 107) 0%, rgb(218, 68, 83) 100%);
+}
+
+.shiftyGradient {
+  background: rgb(162, 171, 88);
+  background: linear-gradient(145deg, rgb(162, 171, 88) 0%, rgb(99, 99, 99) 100%);
+}
+
+.summerGradient {
+  background: rgb(255, 0, 14);
+  background: linear-gradient(145deg, rgb(255, 0, 14) 0%, rgb(115, 208, 91) 100%);
+}
+
+.share-button {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border: none;
+  font-family: "Poppins";
+  font-size: 1em;
+  padding: 0.6em 6em 0.6em 6em;
+  background-color: white;
+  border-radius: 9px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.share-button span {
+  font-weight: bold;
+}
+
+.share-button:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.bold {
+  font-weight: bold;
 }
 
 @-webkit-keyframes fadeIn {
