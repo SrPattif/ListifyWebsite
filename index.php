@@ -1,7 +1,3 @@
-<?php
-    require('./controllers/settings.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
