@@ -65,7 +65,7 @@
     ?>
     <div class="listeningNotification">
         <div class="top">
-            <img crossorigin="anonymous" class="song-image" src="<?php echo($songImageUrl) ?>" alt="">
+            <img class="song-image" src="<?php echo($songImageUrl) ?>" alt="" crossOrigin="Anonymous">
             <div class="text">
                 <span class="songName"><?php echo($songName) ?></span><br><span
                     class="songAuthor"><?php echo($songAuthorName) ?></span>
@@ -98,7 +98,7 @@
                     $artistImage = $topArtists->items[0]->images[0]->url;
                     $artistURI = $topArtists->items[0]->uri;
             ?>
-            <img crossorigin="anonymous" class="artistImage" src="<?php echo($artistImage) ?>" alt="">
+            <img class="artistImage" src="<?php echo($artistImage) ?>" alt="" crossOrigin="Anonymous">
             <h2><?php echo($artistName) ?></h2>
             é o seu artista mais ouvido<?php
             if($timeType == "long_term") {
@@ -132,9 +132,10 @@
 
         <div class="centerContent">
             <div id="imageGenerated">
-                <div class="imageContainer">
+                <div class="imageContainer" id="imgContainer">
+                    <div class="imgContent" id="imgContent">
 
-                    <?php
+                        <?php
                     $topArtists = getUserTOPArtists($accessToken, $timeType);
                     $userInformation = getUserInformation($accessToken);
                     if(isset($userInformation->error)) {
@@ -143,6 +144,7 @@
                     }
     
                     $userName = $userInformation->display_name;
+                    $userName = explode(" ", $userName)[0];
                     if(isset($topArtists)) {
                         if(isset($topArtists->error)) {
                             header('Location: ./');
@@ -154,64 +156,67 @@
                         $artistImage = $topArtists->items[0]->images[0]->url;
                         $artistURI = $topArtists->items[0]->uri;
                 ?>
-                    <!--
-                    <img crossorigin="anonymous" class="mostListenedImage" src="<?php //echo($artistImage); ?>" alt="<?php //echo($artistName); ?>">
-                -->
-                    <br>
-                    <h2 class="artistName"><?php echo($artistName); ?></h2>
-                    <span class="artistDescription">é o artista mais ouvido de <span class="userName"><?php echo($userName); ?></span><?php
+
+                        <img class="mostListenedImage" src="<?php echo($artistImage); ?>"
+                            alt="<?php echo($artistName); ?>" crossOrigin="Anonymous">
+
+                        <br>
+                        <h2 class="artistName"><?php echo($artistName); ?></h2>
+                        <span class="artistDescription">é o artista mais ouvido de <span
+                                class="userName" id="usernameSpan"><?php echo($userName); ?></span><?php
             if($timeType == "long_term") {
                 ?>!
-                        <?php
+                            <?php
             } else if($timeType == "medium_term") {
                 ?>
-                        <br>nos últimos <span class="bold">6 meses</span>!
-                        <?php
+                            <br>nos últimos <span class="bold">6 meses</span>!
+                            <?php
             } else if($timeType == "short_term") {
                 ?>
-                        <br>no <span class="bold">último mês</span>!
-                        <?php
+                            <br>no <span class="bold">último mês</span>!
+                            <?php
             }
             ?></span>
-                    <?php
+                        <?php
                     }
                 ?>
-                    <hr>
-                    <br>
+                        <hr>
+                        <br>
 
-                    <table class="artistsList">
-                        <tr>
-                            <th>Posição</th>
-                            <th> </th>
-                            <th>Artista</th>
-                        </tr>
-                        <?php
+                        <table class="artistsList">
+                            <tr>
+                                <th>Posição</th>
+                                <th> </th>
+                                <th>Artista</th>
+                            </tr>
+                            <?php
                         for($i = 0; $i < 10; $i++) {
                             $artistName = $topArtists->items[$i]->name;
                             $artistID = $topArtists->items[$i]->id;
                             $artistImage = $topArtists->items[$i]->images[0]->url;
                     ?>
-                        <tr>
-                            <td class="bold"><?php echo($i+1); ?>º</td>
-                            <td>
-                                <!--
-                                    <img crossorigin="anonymous" src="<?php //echo($artistImage); ?>" alt="<?php //echo($artistName); ?>">
-                                -->
-                            </td>
+                            <tr>
+                                <td class="bold"><?php echo($i+1); ?>º</td>
+                                <td>
 
-                            <td><?php echo($artistName); ?></td>
-                        </tr>
+                                    <img src="<?php echo($artistImage); ?>" alt="<?php echo($artistName); ?>"
+                                        crossOrigin="Anonymous">
 
-                        <?php
+                                </td>
+
+                                <td><?php echo($artistName); ?></td>
+                            </tr>
+
+                            <?php
                         }
                     ?>
-                    </table>
-                    <br>
-                    <span class="listifyInfo">Crie e compartilhe o seu!</span>
-                    <br>
-                    <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
+                        </table>
+                        <br>
+                        <span class="listifyInfo">Crie e compartilhe o seu!</span>
+                        <br>
+                        <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
+                    </div>
                 </div>
-
             </div>
 
             <br>
@@ -220,7 +225,7 @@
             <div class="centerContent">
                 <a>
                     <button class="share-button" id="shareButton">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i> Compartilhar
+                        <i class="fa fa-picture-o" aria-hidden="true"></i> Compartilhar Imagem
                     </button></a>
 
                 <hr>
@@ -237,6 +242,10 @@
                         <li id="summerGradient">Summer</a></li>
                     </ul>
                 </div>
+                <br>
+                <span class="bold">Quer mudar o seu nome?</span><br>
+
+                <input class="changeNameInput" id="nameInput" value="<?php echo($userName); ?>" type="text">
             </div>
         </div>
     </div>
@@ -252,7 +261,25 @@
 
     <script src="../../libs/changeTheme.js"></script>
     <script src="../../libs/shareButton.js"></script>
+    <!--
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+                    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+        integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        var nameInput = document.getElementById('nameInput'); 
+        nameInput.addEventListener('input', () => {
+            var value = nameInput.value;
+            if(value.length < 20) {
+                document.getElementById('usernameSpan').innerHTML = nameInput.value;
+            }
+        });
+    </script>
 </body>
 
 </html>

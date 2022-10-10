@@ -120,7 +120,9 @@ hr {
   font-family: "Poppins";
   border: none;
   padding: 0.5em 1em 0.5em 1em;
-  width: 15%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   background-color: white;
   color: rgb(26, 26, 26);
   cursor: pointer;

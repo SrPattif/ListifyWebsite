@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+/* latin-ext */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 body {
   font-family: "Poppins";
   background: #dde5f4;
@@ -186,13 +204,16 @@ TO-DO:
   width: fit-content;
 }
 
-.imageContainer {
-  text-align: center;
+.imgContent {
+  padding: 2em;
   background: rgb(20, 110, 51);
   background: linear-gradient(145deg, rgb(20, 110, 51) 0%, rgb(22, 129, 59) 49%, rgb(29, 185, 84) 100%);
+}
+
+.imageContainer {
+  text-align: center;
   margin: 0 auto;
-  padding: 2em;
-  zoom: 150%;
+  zoom: 125%;
   color: white;
   /*
   tr:last-child {
@@ -327,6 +348,35 @@ td img {
   font-weight: bold;
 }
 
+.changeNameInput {
+  -webkit-animation: shadow-drop-2-center-reverse 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: shadow-drop-2-center-reverse 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  letter-spacing: 1px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border: none;
+  font-family: "Poppins";
+  font-size: 1em;
+  padding: 0.6em 3em 0.6em 3em;
+  background-color: white;
+  border-radius: 9px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  outline: none;
+}
+
+.changeNameInput:hover {
+  -webkit-animation: input-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: input-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.changeNameInput:focus {
+  outline: 1px solid rgba(35, 43, 43, 0.541);
+  -webkit-animation: input-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: input-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     filter: blur(2px);
@@ -344,5 +394,77 @@ td img {
   }
   100% {
     opacity: 1;
+  }
+}
+@-webkit-keyframes shadow-drop-2-center {
+  0% {
+    letter-spacing: 1px;
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    letter-spacing: 1.5px;
+    transform: translateZ(30px);
+    box-shadow: 0 0 20px 0px rgba(102, 102, 102, 0.35);
+  }
+}
+@keyframes shadow-drop-2-center {
+  0% {
+    letter-spacing: 1px;
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    letter-spacing: 1.5px;
+    transform: translateZ(30px);
+    box-shadow: 0 0 20px 0px rgba(102, 102, 102, 0.35);
+  }
+}
+@-webkit-keyframes shadow-drop-2-center-reverse {
+  0% {
+    letter-spacing: 1.5px;
+    transform: translateZ(30px);
+    box-shadow: 0 0 20px 0px rgba(102, 102, 102, 0.35);
+  }
+  100% {
+    letter-spacing: 1px;
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+@keyframes shadow-drop-2-center-reverse {
+  0% {
+    letter-spacing: 1.5px;
+    transform: translateZ(30px);
+    box-shadow: 0 0 20px 0px rgba(102, 102, 102, 0.35);
+  }
+  100% {
+    letter-spacing: 1px;
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+@-webkit-keyframes input-in {
+  0% {
+    letter-spacing: 1px;
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    letter-spacing: 1.5px;
+    transform: translateZ(30px);
+    box-shadow: 0 0 20px 0px rgba(102, 102, 102, 0.35);
+  }
+}
+@keyframes input-in {
+  0% {
+    letter-spacing: 1px;
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    letter-spacing: 1.5px;
+    transform: translateZ(30px);
+    box-shadow: 0 0 20px 0px rgba(102, 102, 102, 0.35);
   }
 }/*# sourceMappingURL=index.css.map */
