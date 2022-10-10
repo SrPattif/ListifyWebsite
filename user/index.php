@@ -205,7 +205,7 @@
                     class="songName"><?php echo($trackAuthor) ?></span>
                 <br><span class="songDescription">é a sua música mais tocada.</span>
                 <br>
-                <button class="viewAllButton">
+                <button id="topsong" class="viewAllButton">
                     Ver Mais <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </button>
             </div>
@@ -251,6 +251,12 @@
     topArtist.addEventListener('click', () => {
         window.location.href =
             '<?php echo($listifyDomain); ?>/user/topartist/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>';
+    });
+
+    var topSong = document.getElementById('topsong');
+    topSong.addEventListener('click', () => {
+        window.location.href =
+            '<?php echo($listifyDomain); ?>/user/topsongs/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>';
     });
     </script>
 </body>

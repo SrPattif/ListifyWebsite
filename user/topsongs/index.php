@@ -65,7 +65,7 @@
     ?>
     <div class="listeningNotification">
         <div class="top">
-            <img class="song-image" src="<?php echo($songImageUrl) ?>" alt="" crossOrigin="Anonymous">
+            <img class="song-image" src="<?php echo($songImageUrl) ?>" alt="" crossorigin="anonymous">
             <div class="text">
                 <span class="songName"><?php echo($songName) ?></span><br><span
                     class="songAuthor"><?php echo($songAuthorName) ?></span>
@@ -86,21 +86,22 @@
             <a href="<?php echo($listifyDomain); ?>/user/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>"
                 class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br><br>
             <?php
-                $topArtists = getUserTOPArtists($accessToken, $timeType);
-                if(isset($topArtists)) {
-                    if(isset($topArtists->error)) {
+                $topTracks = getUserTOPTracks($accessToken, $timeType);
+                if(isset($topTracks)) {
+                    if(isset($topTracks->error)) {
                         header('Location: ./');
                         exit();
                     }
 
-                    $artistName = $topArtists->items[0]->name;
-                    $artistID = $topArtists->items[0]->id;
-                    $artistImage = $topArtists->items[0]->images[0]->url;
-                    $artistURI = $topArtists->items[0]->uri;
+                    $songName = $topTracks->items[0]->name;
+                    $songAuthor = $topTracks->items[0]->album->artists[0]->name;
+                    //$artistID = $topTracks->items[0]->id;
+                    $songImage = $topTracks->items[0]->album->images[0]->url;
+                    $songUri = $topTracks->items[0]->uri;
             ?>
-            <img class="artistImage" src="<?php echo($artistImage) ?>" alt="" crossOrigin="Anonymous">
-            <h2><?php echo($artistName) ?></h2>
-            é o seu artista mais ouvido<?php
+            <img class="artistImage" src="<?php echo($songImage) ?>" alt="" crossorigin="anonymous">
+            <h2><?php echo($songName) ?> de <?php echo($songAuthor) ?></h2>
+            é a sua música mais ouvida<?php
             if($timeType == "long_term") {
                 ?>!
             <?php
@@ -121,7 +122,7 @@
                 }
             ?>
             <br> <br>
-            <a href="<?php echo($artistURI); ?>">
+            <a href="<?php echo($songUri); ?>">
                 <button class="spotify-view-button" id="spotify-view-button">
                     <i class="fa fa-spotify" aria-hidden="true"></i> Ver no <span>Spotify</span>
                 </button>
@@ -136,7 +137,7 @@
                     <div class="imgContent" id="imgContent">
 
                         <?php
-                    $topArtists = getUserTOPArtists($accessToken, $timeType);
+                    $topTracks = getUsertopTracks($accessToken, $timeType);
                     $userInformation = getUserInformation($accessToken);
                     if(isset($userInformation->error)) {
                         header('Location: ../');
@@ -145,24 +146,25 @@
     
                     $userName = $userInformation->display_name;
                     $userName = explode(" ", $userName)[0];
-                    if(isset($topArtists)) {
-                        if(isset($topArtists->error)) {
+                    if(isset($topTracks)) {
+                        if(isset($topTracks->error)) {
                             header('Location: ./');
                             exit();
                         }
     
-                        $artistName = $topArtists->items[0]->name;
-                        $artistID = $topArtists->items[0]->id;
-                        $artistImage = $topArtists->items[0]->images[0]->url;
-                        $artistURI = $topArtists->items[0]->uri;
+                        $songName = $topTracks->items[0]->name;
+                        $songAuthor = $topTracks->items[0]->album->artists[0]->name;
+                        //$artistID = $topTracks->items[0]->id;
+                        $songImage = $topTracks->items[0]->album->images[0]->url;
+                        $songUri = $topTracks->items[0]->uri;
                 ?>
 
-                        <img class="mostListenedImage" src="<?php echo($artistImage); ?>"
-                            alt="<?php echo($artistName); ?>" crossOrigin="Anonymous">
+                        <img class="mostListenedImage" src="<?php echo($songImage); ?>" alt="<?php echo($songName); ?>"
+                            crossorigin="anonymous">
 
                         <br>
-                        <h2 class="artistName"><?php echo($artistName); ?></h2>
-                        <span class="artistDescription">é o artista mais ouvido de <span class="userName"
+                        <h2 class="artistName"><?php echo($songName); ?></h2>
+                        <span class="artistDescription">é a música mais ouvida de <span class="userName"
                                 id="usernameSpan"><?php echo($userName); ?></span><?php
             if($timeType == "long_term") {
                 ?>!
@@ -187,24 +189,27 @@
                             <tr>
                                 <th>Posição</th>
                                 <th> </th>
-                                <th>Artista</th>
+                                <th>Música</th>
                             </tr>
                             <?php
                         for($i = 0; $i < 10; $i++) {
-                            $artistName = $topArtists->items[$i]->name;
-                            $artistID = $topArtists->items[$i]->id;
-                            $artistImage = $topArtists->items[$i]->images[0]->url;
+                            $songName = $topTracks->items[$i]->name;
+                            $songAuthor = $topTracks->items[$i]->album->artists[0]->name;
+                            //$artistID = $topTracks->items[$i]->id;
+                            $songImage = $topTracks->items[$i]->album->images[0]->url;
+                            $songUri = $topTracks->items[$i]->uri;
                     ?>
                             <tr>
                                 <td class="bold"><?php echo($i+1); ?>º</td>
                                 <td>
 
-                                    <img src="<?php echo($artistImage); ?>" alt="<?php echo($artistName); ?>"
-                                        crossOrigin="Anonymous">
+                                    <img src="<?php echo($songImage); ?>" alt="<?php echo($songName); ?>"
+                                        crossorigin="anonymous">
 
                                 </td>
 
-                                <td><?php echo($artistName); ?></td>
+                                <td><span class="bold"><?php echo($songName); ?></span> de <?php echo($songAuthor); ?>
+                                </td>
                             </tr>
 
                             <?php
@@ -259,9 +264,6 @@
         <span>manda uma coisinha lá :)</span>
     </div>
 
-    <!--
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-                    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
         integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -280,23 +282,24 @@
     </script>
 
     <script>
-    document.getElementById("shareButton").addEventListener("click", downloadImg);
+    document.getElementById("shareButton").addEventListener("click", downloadImage);
 
-    function downloadImg() {
+    function downloadImage() {
 
-        domtoimage.toBlob(document.getElementById("imgContent")).then(function(blob) {
-            window.saveAs(blob, "seu-top-artistas.png");
+        domtoimage.toBlob(document.getElementById('imgContent')).then(function(blob) {
+            window.saveAs(blob, "seu-top-musicas.png");
+        }).catch((err) => {
+            console.log(err);
         });
     }
     </script>
 
     <script>
+    var imgContent = document.getElementById('imgContent');
     var greenGradient = document.getElementById('greenGradient');
     var vanusaGradient = document.getElementById('vanusaGradient');
     var shiftyGradient = document.getElementById('shiftyGradient');
     var summerGradient = document.getElementById('summerGradient');
-
-    var imgContent = document.getElementById('imgContent');
 
     greenGradient.addEventListener('click', () => {
         imgContent.style.background = "rgb(20, 110, 51)";
