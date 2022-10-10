@@ -201,18 +201,91 @@ hr {
 }
 
 .footer {
+  font-weight: bold;
   text-align: center;
   color: #9398a1;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 .footer a {
   color: #9398a1;
   text-decoration: none;
+  margin-right: 1em;
+  vertical-align: middle;
+  -webkit-animation: clarify-reverse 0.4s ease-in-out 0s 1 normal forwards;
+          animation: clarify-reverse 0.4s ease-in-out 0s 1 normal forwards;
 }
-.footer span {
-  font-size: 10px;
+.footer a:hover {
+  -webkit-animation: clarify 0.4s ease-in-out 0s 1 normal forwards;
+          animation: clarify 0.4s ease-in-out 0s 1 normal forwards;
+}
+.footer .footer-clarify {
+  font-size: 1em;
+  -webkit-animation: clarify-reverse 0.6s ease-in-out 0s 1 normal forwards;
+          animation: clarify-reverse 0.6s ease-in-out 0s 1 normal forwards;
+}
+.footer .footer-clarify:hover {
+  font-size: 1em;
+  -webkit-animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
+          animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
 }
 
+@-webkit-keyframes clarify {
+  0% {
+    font-size: 1em;
+    color: #9398a1;
+  }
+  100% {
+    font-size: 1.05em;
+    color: #2b2b2b;
+  }
+}
+
+@keyframes clarify {
+  0% {
+    font-size: 1em;
+    color: #9398a1;
+  }
+  100% {
+    font-size: 1.05em;
+    color: #2b2b2b;
+  }
+}
+@-webkit-keyframes clarify-reverse {
+  0% {
+    font-size: 1.05em;
+    color: #2b2b2b;
+  }
+  100% {
+    font-size: 1em;
+    color: #9398a1;
+  }
+}
+@keyframes clarify-reverse {
+  0% {
+    font-size: 1.05em;
+    color: #2b2b2b;
+  }
+  100% {
+    font-size: 1em;
+    color: #9398a1;
+  }
+}
+@-webkit-keyframes spacingGreater1-2 {
+  0% {
+    letter-spacing: 1px;
+  }
+  100% {
+    letter-spacing: 2px;
+  }
+}
+@keyframes spacingGreater1-2 {
+  0% {
+    letter-spacing: 1px;
+  }
+  100% {
+    letter-spacing: 2px;
+  }
+}
 @-webkit-keyframes fadeIn {
   0% {
     filter: blur(2px);
@@ -222,7 +295,6 @@ hr {
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   0% {
     filter: blur(2px);
