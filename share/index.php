@@ -1,4 +1,5 @@
 <?php
+header('location: ../');
 
 $tagsText = "";
 if(!empty($_GET)) {
@@ -34,9 +35,6 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $tagsText;
-
-//header('location: ../');
 exit();
 
 ?>
