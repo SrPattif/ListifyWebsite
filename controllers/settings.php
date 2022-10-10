@@ -1,4 +1,5 @@
 <?php
+    $listifyVersion = 1.0;
     $listifyReleased = false;
     $listifyDomain = 'http://localhost';
     $listifyRedirectURI = 'http://localhost/user/';
