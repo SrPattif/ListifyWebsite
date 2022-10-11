@@ -84,7 +84,18 @@
     <div class="pageContent">
         <div class="top">
             <a href="<?php echo($listifyDomain); ?>/user/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>"
-                class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br><br>
+                class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br>
+
+            <div class="timeSelector">
+                <ul>
+                    <li <?php if($timeType == 'short_term') {?> class="selected" <?php } ?>> <a
+                            href="./?access-token=<?php echo($accessToken) ?>&time=short">1 mês</a></li>
+                    <li <?php if($timeType == 'medium_term') {?> class="selected" <?php } ?>> <a
+                            href="./?access-token=<?php echo($accessToken) ?>&time=medium">6 meses</a></li>
+                    <li <?php if($timeType == 'long_term') {?> class="selected" <?php } ?>> <a
+                            href="./?access-token=<?php echo($accessToken) ?>&time=long">Todo o Tempo</a></li>
+                </ul>
+            </div><br>
             <?php
                 $topArtists = getUserTOPArtists($accessToken, $timeType);
                 if(isset($topArtists)) {
@@ -181,13 +192,12 @@
                     }
                 ?>
                         <hr>
-                        <br>
 
                         <table class="artistsList">
                             <tr>
-                                <th>Posição</th>
-                                <th> </th>
-                                <th>Artista</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                             </tr>
                             <?php
                         for($i = 0; $i < 10; $i++) {
@@ -259,7 +269,7 @@
 
 
     <script src="../../libs/tatatoast/dist/tata.js"></script>
-                        
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
         integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -343,8 +353,8 @@
     });
 
     summerGradient.addEventListener('click', () => {
-        imgContent.style.background = "rgb(255,0,14)";
-        imgContent.style.background = "linear-gradient(145deg, rgba(255,0,14,1) 0%, rgba(115,208,91,1) 100%)";
+        imgContent.style.background = "rgb(198,125,21)";
+        imgContent.style.background = "linear-gradient(145deg, rgba(198,125,21,1) 0%, rgba(181,170,71,1) 100%)";
 
         greenGradient.classList.remove("selected");
         vanusaGradient.classList.remove("selected");

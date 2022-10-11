@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 /* latin-ext */
 @font-face {
   font-family: "Poppins";
@@ -59,6 +60,7 @@ body {
   cursor: pointer;
   color: white;
   margin-bottom: 1em;
+  transition: background-color 0.4s;
 }
 .pageContent .top .spotify-view-button span {
   font-weight: bold;
@@ -163,6 +165,7 @@ hr {
   background-color: #146e33;
   border-radius: 10px;
   padding: 4px;
+  font-family: "Ubuntu", sans-serif;
 }
 .listeningNotification .song-image {
   margin: 0 1em 0 0;
@@ -192,7 +195,7 @@ TO-DO:
 }
 
 .imgContent {
-  padding: 2em;
+  padding: 1em;
   background: rgb(20, 110, 51);
   background: linear-gradient(145deg, rgb(20, 110, 51) 0%, rgb(22, 129, 59) 49%, rgb(29, 185, 84) 100%);
 }
@@ -212,6 +215,7 @@ TO-DO:
 .artistName {
   text-align: center;
   font-weight: bold;
+  margin: 0;
 }
 
 tr {
@@ -281,6 +285,8 @@ td img {
   margin: 1em;
   padding: 0.3em;
   display: inline;
+  border-radius: 10px;
+  transition: background-color 0.4s;
 }
 .customSelect ul li a {
   text-decoration: none;
@@ -288,7 +294,6 @@ td img {
 }
 .customSelect ul li:hover {
   background-color: rgba(13, 75, 35, 0.5);
-  border-radius: 10px;
 }
 
 .greenGradient {
@@ -322,6 +327,7 @@ td img {
   border-radius: 9px;
   cursor: pointer;
   color: rgb(0, 0, 0);
+  transition: background-color 0.4s;
 }
 .share-button span {
   font-weight: bold;
@@ -391,6 +397,41 @@ td img {
   font-size: 1em;
   -webkit-animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
           animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
+}
+
+.timeSelector {
+  justify-content: center;
+}
+.timeSelector .selected {
+  background-color: rgba(13, 75, 35, 0.5);
+  border-radius: 10px;
+}
+.timeSelector ul {
+  background-color: rgb(20, 110, 51);
+  color: white;
+  border-radius: 10px;
+  display: table;
+  margin: 1em auto;
+  padding: 0.5em 0 0.5em 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  list-style: none;
+}
+.timeSelector ul li {
+  cursor: pointer;
+  margin: 1em;
+  padding: 0.3em;
+  display: inline;
+  transition: background-color 0.4s;
+  border-radius: 10px;
+}
+.timeSelector ul li a {
+  text-decoration: none;
+  color: white;
+}
+.timeSelector ul li:hover {
+  background-color: rgba(13, 75, 35, 0.5);
 }
 
 @-webkit-keyframes clarify {

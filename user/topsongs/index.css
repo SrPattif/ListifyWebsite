@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 /* latin-ext */
 @font-face {
   font-family: "Poppins";
@@ -59,6 +60,7 @@ body {
   cursor: pointer;
   color: white;
   margin-bottom: 1em;
+  transition: background-color 0.4s;
 }
 .pageContent .top .spotify-view-button span {
   font-weight: bold;
@@ -163,6 +165,7 @@ hr {
   background-color: #146e33;
   border-radius: 10px;
   padding: 4px;
+  font-family: "Ubuntu", sans-serif;
 }
 .listeningNotification .song-image {
   margin: 0 1em 0 0;
@@ -192,7 +195,7 @@ TO-DO:
 }
 
 .imgContent {
-  padding: 2em;
+  padding: 1em;
   background: rgb(20, 110, 51);
   background: linear-gradient(145deg, rgb(20, 110, 51) 0%, rgb(22, 129, 59) 49%, rgb(29, 185, 84) 100%);
 }
@@ -212,7 +215,7 @@ TO-DO:
 .songName {
   text-align: center;
   font-weight: bold;
-  margin: 1em 0 0 0;
+  margin: 0;
 }
 
 .artistName {
@@ -234,6 +237,7 @@ td {
 }
 td .songImage {
   position: relative;
+  cursor: pointer;
 }
 td .songImage img {
   width: 54px;
@@ -247,7 +251,6 @@ td .songImage i {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
   transition: color 0.4s;
 }
 td .songImage:hover img {
@@ -255,6 +258,10 @@ td .songImage:hover img {
 }
 td .songImage:hover i {
   color: rgb(255, 255, 255);
+}
+
+.tdPosition {
+  padding-right: 1em;
 }
 
 .artistsList {
@@ -305,10 +312,12 @@ td .songImage:hover i {
   list-style: none;
 }
 .customSelect ul li {
+  transition: background-color 0.4s;
   cursor: pointer;
   margin: 1em;
   padding: 0.3em;
   display: inline;
+  border-radius: 10px;
 }
 .customSelect ul li a {
   text-decoration: none;
@@ -316,7 +325,6 @@ td .songImage:hover i {
 }
 .customSelect ul li:hover {
   background-color: rgba(13, 75, 35, 0.5);
-  border-radius: 10px;
 }
 
 .greenGradient {
@@ -350,6 +358,7 @@ td .songImage:hover i {
   border-radius: 9px;
   cursor: pointer;
   color: rgb(0, 0, 0);
+  transition: background-color 0.4s;
 }
 .share-button span {
   font-weight: bold;
@@ -445,6 +454,8 @@ td .songImage:hover i {
   margin: 1em;
   padding: 0.3em;
   display: inline;
+  border-radius: 10px;
+  transition: background-color 0.4s;
 }
 .timeSelector ul li a {
   text-decoration: none;
@@ -452,7 +463,6 @@ td .songImage:hover i {
 }
 .timeSelector ul li:hover {
   background-color: rgba(13, 75, 35, 0.5);
-  border-radius: 10px;
 }
 
 @-webkit-keyframes clarify {

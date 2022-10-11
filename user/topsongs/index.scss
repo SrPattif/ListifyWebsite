@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 /* latin-ext */
 @font-face {
@@ -65,6 +66,7 @@ body {
             cursor: pointer;
             color: white;
             margin-bottom: 1em;
+            transition: background-color 0.4s;
 
             span {
                 font-weight: bold;
@@ -195,6 +197,7 @@ hr {
             background-color: #146e33;
             border-radius: 10px;
             padding: 4px;
+            font-family: 'Ubuntu', sans-serif;
         }
     }
 
@@ -228,7 +231,7 @@ TO-DO:
 }
 
 .imgContent {
-    padding: 2em;
+    padding: 1em;
     background: rgb(20, 110, 51);
     background: linear-gradient(145deg, rgba(20, 110, 51, 1) 0%, rgba(22, 129, 59, 1) 49%, rgba(29, 185, 84, 1) 100%);
 }
@@ -261,7 +264,7 @@ TO-DO:
 .songName {
     text-align: center;
     font-weight: bold;
-    margin: 1em 0 0 0;
+    margin: 0;
 }
 
 .artistName {
@@ -285,6 +288,7 @@ td {
 
     .songImage {
         position: relative;
+        cursor: pointer;
 
         img {
             width: 54px;
@@ -300,7 +304,6 @@ td {
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            cursor: pointer;
             transition: color 0.4s;
         }
     }
@@ -314,6 +317,10 @@ td {
             color: rgba(255, 255, 255, 1);
         }
     }
+}
+
+.tdPosition {
+    padding-right: 1em;
 }
 
 .artistsList {
@@ -366,10 +373,12 @@ td {
         list-style: none;
 
         li {
+            transition: background-color 0.4s;
             cursor: pointer;
             margin: 1em;
             padding: 0.3em;
             display: inline;
+            border-radius: 10px;
 
             a {
                 text-decoration: none;
@@ -379,7 +388,6 @@ td {
 
         li:hover {
             background-color: rgba(13, 75, 35, 0.5);
-            border-radius: 10px;
         }
     }
 }
@@ -415,6 +423,7 @@ td {
     border-radius: 9px;
     cursor: pointer;
     color: rgb(0, 0, 0);
+    transition: background-color 0.4s;
 
     span {
         font-weight: bold;
@@ -511,6 +520,8 @@ td {
             margin: 1em;
             padding: 0.3em;
             display: inline;
+            border-radius: 10px;
+            transition: background-color 0.4s;
 
             a {
                 text-decoration: none;
@@ -520,7 +531,6 @@ td {
 
         li:hover {
             background-color: rgba(13, 75, 35, 0.5);
-            border-radius: 10px;
         }
     }
 }

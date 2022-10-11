@@ -4,6 +4,7 @@ require('../../controllers/spotifyTop.php');
 require('../../controllers/spotifyUser.php');
 require('../../controllers/spotifyArtists.php');
 require('../../controllers/settings.php');
+require('../../controllers/utils.php');
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +86,7 @@ require('../../controllers/settings.php');
         <div class="top">
             <a href="<?php echo ($listifyDomain); ?>/user/?access-token=<?php echo ($accessToken); ?><?php if (isset($queryTime)) { ?>&time=<?php echo ($queryTime);
                                                                                                                                         } ?>"
-                class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br><br>
+                class="return"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a><br>
 
             <div class="timeSelector">
                 <ul>
@@ -97,6 +98,7 @@ require('../../controllers/settings.php');
                             href="./?access-token=<?php echo($accessToken) ?>&time=long">Todo o Tempo</a></li>
                 </ul>
             </div>
+            <br>
 
             <?php
             $topTracks = getUserTOPTracks($accessToken, $timeType);
@@ -202,13 +204,13 @@ require('../../controllers/settings.php');
                         }
                         ?>
                             <hr>
-                            <br>
+
 
                             <table class="artistsList">
                                 <tr>
-                                    <th>Posição</th>
-                                    <th> </th>
-                                    <th>Música</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 <?php
                             for ($i = 0; $i < 10; $i++) {
@@ -219,18 +221,17 @@ require('../../controllers/settings.php');
                                 $songUri = $topTracks->items[$i]->uri;
                             ?>
                                 <tr>
-                                    <td class="bold"><?php echo ($i + 1); ?>º</td>
+                                    <td class="bold tdPosition"><?php echo ($i + 1); ?>º</td>
                                     <td>
-                                        <div class="songImage">
+                                        <div class="songImage" onclick="changeTrack('<?php echo($songUri); ?>', '<?php echo($accessToken); ?>')">
                                             <img src="<?php echo ($songImage); ?>" alt="<?php echo ($songName); ?>"
                                                 crossorigin="anonymous">
-                                            <i class="fa fa-play" aria-hidden="true"
-                                                onclick="changeTrack('<?php echo($songUri); ?>', '<?php echo($accessToken); ?>')"></i>
+                                            <i class="fa fa-play" aria-hidden="true"></i>
                                         </div>
 
                                     </td>
 
-                                    <td><span class="bold"><?php echo ($songName); ?></span> de
+                                    <td><span class="bold"><?php echo (substrwords($songName, 25)); ?></span> de
                                         <?php echo ($songAuthor); ?>
                                     </td>
                                 </tr>
@@ -240,9 +241,10 @@ require('../../controllers/settings.php');
                             ?>
                             </table>
                             <br>
-                            <span class="listifyInfo">Crie e compartilhe o seu!</span>
-                            <br>
-                            <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
+                            <div class="imageFooter">
+                                <span class="listifyInfo">Crie e compartilhe o seu!</span><br>
+                                <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -376,8 +378,8 @@ require('../../controllers/settings.php');
     });
 
     summerGradient.addEventListener('click', () => {
-        imgContent.style.background = "rgb(255,0,14)";
-        imgContent.style.background = "linear-gradient(145deg, rgba(255,0,14,1) 0%, rgba(115,208,91,1) 100%)";
+        imgContent.style.background = "rgb(198,125,21)";
+        imgContent.style.background = "linear-gradient(145deg, rgba(198,125,21,1) 0%, rgba(181,170,71,1) 100%)";
 
         greenGradient.classList.remove("selected");
         vanusaGradient.classList.remove("selected");

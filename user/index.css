@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 body {
   font-family: "Poppins";
   background: #dde5f4;
@@ -8,14 +9,21 @@ body {
 }
 
 .header {
-  margin: 0 0 0 0;
-  padding: 0.5em 0 0.5em 0;
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
   text-align: center;
   background-color: rgb(20, 110, 51);
   font-family: "Work Sans", sans-serif;
   font-size: 22px;
   color: white;
   letter-spacing: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+.header .countryFlag {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
 }
 
 .pageContent {
@@ -190,6 +198,7 @@ hr {
   background-color: #146e33;
   border-radius: 10px;
   padding: 4px;
+  font-family: "Ubuntu", sans-serif;
 }
 .listeningNotification .song-image {
   margin: 0 1em 0 0;
@@ -227,6 +236,33 @@ hr {
   font-size: 1em;
   -webkit-animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
           animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
+}
+
+.songImageContainer {
+  position: relative;
+}
+.songImageContainer img {
+  width: 54px;
+  height: 54px;
+  border-radius: 9px;
+  transition: filter 0.4s;
+  cursor: pointer;
+}
+.songImageContainer i {
+  color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.4s;
+  cursor: pointer;
+}
+
+.songImageContainer:hover img {
+  filter: blur(2px);
+}
+.songImageContainer:hover i {
+  color: rgb(255, 255, 255);
 }
 
 @-webkit-keyframes clarify {
