@@ -258,9 +258,16 @@ TO-DO:
 
 }
 
-.artistName {
+.songName {
     text-align: center;
     font-weight: bold;
+    margin: 1em 0 0 0;
+}
+
+.artistName {
+    text-align: center;
+    font-weight: normal;
+    margin: 0 0 1em 0;
 }
 
 tr {
@@ -276,10 +283,36 @@ td {
     margin-left: 2em;
     margin-right: 2em;
 
-    img {
-        width: 54px;
-        height: 54px;
-        border-radius: 9px;
+    .songImage {
+        position: relative;
+
+        img {
+            width: 54px;
+            height: 54px;
+            border-radius: 9px;
+            transition: filter 0.4s;
+        }
+
+        i {
+            //visibility: hidden; // hidden
+            color: rgba(255, 255, 255, 0);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+            transition: color 0.4s;
+        }
+    }
+
+    .songImage:hover {
+        img {
+            filter: blur(2px);
+        }
+
+        i {
+            color: rgba(255, 255, 255, 1);
+        }
     }
 }
 
@@ -450,6 +483,45 @@ td {
     .footer-clarify:hover {
         font-size: 1em;
         animation: clarify 0.6s ease-in-out 0s 1 normal forwards;
+    }
+}
+
+.timeSelector {
+    justify-content: center;
+
+    .selected {
+        background-color: rgba(13, 75, 35, 0.5);
+        border-radius: 10px;
+    }
+
+    ul {
+        background-color: rgba(20, 110, 51, 1);
+        color: white;
+        border-radius: 10px;
+
+        display: table;
+        margin: 1em auto;
+
+        padding: 0.5em 0 0.5em 0;
+        width: fit-content;
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            margin: 1em;
+            padding: 0.3em;
+            display: inline;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        li:hover {
+            background-color: rgba(13, 75, 35, 0.5);
+            border-radius: 10px;
+        }
     }
 }
 

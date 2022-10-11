@@ -50,7 +50,7 @@
         var login = document.getElementById('spotify-login');
 
         login.addEventListener('click', () => {
-            window.location.href = "https://accounts.spotify.com/pt-BR/authorize?client_id=00fe8a888303400293a36a1fb82ec145&scope=user-read-private%20user-read-email%20user-top-read%20user-follow-read%20user-read-recently-played%20user-library-read%20playlist-read-private%20user-read-playback-state&response_type=code&redirect_uri=<?php echo($listifyRedirectURI); ?>"
+            window.location.href = "https://accounts.spotify.com/pt-BR/authorize?client_id=00fe8a888303400293a36a1fb82ec145&scope=user-read-private%20user-read-email%20user-top-read%20user-follow-read%20user-read-recently-played%20user-library-read%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state&response_type=code&redirect_uri=<?php echo($listifyRedirectURI); ?>"
         })
     </script>
 </body>

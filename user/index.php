@@ -131,7 +131,7 @@
                 $userName = $userInformation->display_name;
                 $userName = explode(" ", $userName)[0];
             ?>
-            <h2>Boa tarde, <b><?php echo($userName); ?></b>! &#128075</h2>
+            <h2><span id="randomGreeting">E aí</span>, <b><?php echo($userName); ?></b>! &#128075</h2>
             Você está conectado com <b>Spotify</b>. <span class="disconnect">Sair</span><br><br>
 
             <div class="timeSelector">
@@ -244,6 +244,7 @@
         <a href="https://github.com/SrPattif"><i class="fa fa-github" aria-hidden="true"></i></a><br>
     </div>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
     var topArtist = document.getElementById('topartist');
     topArtist.addEventListener('click', () => {
@@ -255,6 +256,32 @@
     topSong.addEventListener('click', () => {
         window.location.href =
             '<?php echo($listifyDomain); ?>/user/topsongs/?access-token=<?php echo($accessToken); ?><?php if(isset($queryTime)) { ?>&time=<?php echo($queryTime); }?>';
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        const random = ["E aí", "Salve", "Oi", "Olá", "day-time"]
+        var greeting = random[Math.floor(Math.random() * random.length)];
+
+        if (greeting == 'day-time') {
+            var d = new Date();
+            var hour = d.getHours();
+
+            if (hour < 5) {
+                greeting = "Boa noite";
+            } else if (hour < 8) {
+                greeting = "Bom dia";
+            } else if (hour < 12) {
+                greeting = "Bom dia";
+            } else if (hour < 18) {
+                greeting = "Boa tarde";
+            } else {
+                greeting = "Boa noite";
+            }
+        }
+
+        $(randomGreeting).text(greeting);
     });
     </script>
 </body>
