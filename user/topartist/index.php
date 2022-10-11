@@ -257,9 +257,9 @@
         <a href="https://github.com/SrPattif"><i class="fa fa-github" aria-hidden="true"></i></a><br>
     </div>
 
-    <!--
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-                    -->
+
+    <script src="../../libs/tatatoast/dist/tata.js"></script>
+                        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
         integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -282,9 +282,22 @@
 
     function downloadImg() {
 
+        domtoimage.toJpeg(document.getElementById('imgContent'))
+            .then(function(dataUrl) {
+                var link = document.createElement('a');
+                link.download = 'seu-top-musicas.jpeg';
+                link.href = dataUrl;
+                link.click();
+            }).catch((err) => {
+                tata.error('Erro ao Salvar :(', 'Ocorreu um erro ao salvar a imagem.', {
+                    duration: 6000
+                });
+            });;
+
+        /*
         domtoimage.toBlob(document.getElementById("imgContent")).then(function(blob) {
             window.saveAs(blob, "seu-top-artistas.png");
-        });
+        });*/
     }
     </script>
 
