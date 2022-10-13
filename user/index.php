@@ -247,14 +247,6 @@ if (isset($_GET['time'])) {
     </div>
 
     <div class="footer">
-        <p class="urlShortcut">
-            <a href="./">Início</a>
-            |
-            <a href="./transparency/">Transparência</a>
-            |
-            <a href="./transparency/privacy_policy/">Política de Privacidade</a>
-        </p>
-
         Desenvolvido por <span class="footer-clarify">Gustavo Antonio</span><br>
         <a href="https://www.instagram.com/ogustavo.a/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         <a href="https://twitter.com/ogustavo_a"><i class="fa fa-twitter" aria-hidden="true"></i></a>

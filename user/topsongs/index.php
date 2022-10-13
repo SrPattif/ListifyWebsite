@@ -180,7 +180,7 @@ require('../../controllers/utils.php');
 
                             <br>
                             <h2 class="songName"><?php echo ($songName); ?></h2>
-                            <h4 class="artistName">de <span class="bold"><?php echo ($songAuthor); ?></span></h1>
+                            <h4 class="artistName">de <span class="bold"><?php echo ($songAuthor); ?></span></h4>
                         </div>
                         <span class="artistDescription">é a música mais ouvida de <span class="userName"
                                 id="usernameSpan"><?php echo ($userName); ?></span><?php
