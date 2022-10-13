@@ -194,6 +194,7 @@ hr {
 }
 .listeningNotification .bottom i {
   margin-right: 0.2em;
+  font-size: 1.2em;
 }
 .listeningNotification .bottom .deviceName {
   margin-left: 0.2em;
@@ -266,6 +267,15 @@ hr {
 }
 .songImageContainer:hover i {
   color: rgb(255, 255, 255);
+}
+
+.premiumAccount {
+  font-weight: 100;
+  letter-spacing: -1px;
+  padding: 0 1em 0 1em;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
 }
 
 @-webkit-keyframes clarify {

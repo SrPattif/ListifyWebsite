@@ -233,6 +233,7 @@ hr {
 
         i {
             margin-right: 0.2em;
+            font-size: 1.2em;
         }
 
         .deviceName {
@@ -319,6 +320,15 @@ hr {
     i {
         color: rgba(255, 255, 255, 1);
     }
+}
+
+.premiumAccount {
+    font-weight: 100;
+    letter-spacing: -1px;
+    padding: 0 1em 0 1em;
+    background-color: #000000;
+    color: white;
+    border-radius: 10px;
 }
 
 @keyframes clarify {

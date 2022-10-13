@@ -33,6 +33,7 @@ if (isset($_GET['time'])) {
 
     <!-- Bibliotecas Externas -->
     <script src="https://use.fontawesome.com/8aae9daeac.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -102,6 +103,12 @@ if (isset($_GET['time'])) {
         $songImageUrl = $playerJson->item->album->images[0]->url;
 
         $songAuthorName = $playerJson->item->album->artists[0]->name;
+        
+        if(sizeof($playerJson->item->artists) > 1) {
+            for($authorLength = 1; $authorLength < sizeof($playerJson->item->artists); $authorLength++) {
+                $songAuthorName .= ", " . $playerJson->item->artists[$authorLength]->name;
+            }
+        }
         ?>
     <div class="listeningNotification">
         <div class="top">
@@ -112,7 +119,21 @@ if (isset($_GET['time'])) {
             </div>
         </div>
         <div class="bottom">
-            <i class="fa fa-desktop" aria-hidden="true"></i> Em <span
+            <?php
+                if($playerJson->device->type == "Computer") {
+                    echo("<i class='bx bx-desktop'></i>");
+
+                } else if($playerJson->device->type == "Smartphone") {
+                    echo("<i class='bx bx-headphone'></i>");
+
+                } else if($playerJson->device->type == "Speaker") {
+                    echo("<i class='bx bx-speaker'></i>");
+
+                } else {
+                    echo("<i class='bx bx-ghost'></i>");
+                }
+            ?>
+         Em <span
                 class="deviceName"><?php echo ($deviceName) ?></span><br>
         </div>
     </div>
@@ -124,18 +145,30 @@ if (isset($_GET['time'])) {
     <div class="pageContent">
         <div class="top">
             <?php
-            $userInformation = getUserInformation($accessToken);
-            if (isset($userInformation->error)) {
-                header('Location: ../');
-                exit();
-            }
+                $userInformation = getUserInformation($accessToken);
+                if (isset($userInformation->error)) {
+                    header('Location: ../');
+                    exit();
+                }
 
-            $userName = $userInformation->display_name;
-            $userName = explode(" ", $userName)[0];
+                $userName = $userInformation->display_name;
+                $userName = explode(" ", $userName)[0];
             ?>
             <h2><span id="randomGreeting">E aí</span>, <b><?php echo ($userName); ?></b>! &#128075</h2>
             Você está conectado com <b>Spotify</b>. <a href="https://www.spotify.com/account/apps/" target="_blank"
-                class="disconnect">Sair</a><br><br>
+                class="disconnect">Sair</a>
+
+            <br>
+
+            <?php
+                if($userInformation->product == "premium" || $userInformation->product == "open") {
+            ?>
+            <span class="premiumAccount">SPOTIFY PREMIUM</span>
+            <?php
+                }
+            ?>
+
+            <br>
 
             <div class="timeSelector">
                 <ul>

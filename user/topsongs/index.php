@@ -21,6 +21,7 @@ require('../../controllers/utils.php');
 
     <!-- Bibliotecas Externas -->
     <script src="https://use.fontawesome.com/8aae9daeac.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -73,7 +74,21 @@ require('../../controllers/utils.php');
             </div>
         </div>
         <div class="bottom">
-            <i class="fa fa-desktop" aria-hidden="true"></i> Em <span
+            <?php
+                if($playerJson->device->type == "Computer") {
+                    echo("<i class='bx bx-desktop'></i>");
+
+                } else if($playerJson->device->type == "Smartphone") {
+                    echo("<i class='bx bx-headphone'></i>");
+
+                } else if($playerJson->device->type == "Speaker") {
+                    echo("<i class='bx bx-speaker'></i>");
+
+                } else {
+                    echo("<i class='bx bx-ghost'></i>");
+                }
+            ?>
+         Em <span
                 class="deviceName"><?php echo ($deviceName) ?></span><br>
         </div>
     </div>
