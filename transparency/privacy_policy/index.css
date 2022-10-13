@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap");
 body {
   font-family: "Poppins";
   background: #dde5f4;
@@ -69,27 +70,23 @@ body {
   margin: 1em;
 }
 
-.spotify-login-button {
-  margin: 0 4em 0 4em;
+.bold {
+  font-weight: bold;
+}
+
+h3 {
+  margin: 0;
+}
+
+.home-button {
+  margin: 2em 4em 0 4em;
   background-color: rgb(26, 141, 66);
   padding: 0.3em 1em 0.3em 1em;
   border-radius: 9px;
   cursor: pointer;
   color: white;
 }
-.spotify-login-button span {
-  font-weight: bold;
-}
-
-.transparency-button {
-  margin: 1em 4em 0 4em;
-  background-color: rgb(249, 250, 249);
-  padding: 0.3em 1em 0.3em 1em;
-  border-radius: 9px;
-  cursor: pointer;
-  color: rgb(0, 0, 0);
-}
-.transparency-button span {
+.home-button span {
   font-weight: bold;
 }
 
@@ -111,6 +108,14 @@ body {
 }
 .footer span {
   font-size: 10px;
+}
+
+.privacyContainer {
+  letter-spacing: -1px;
+  background-color: white;
+  padding: 2em;
+  font-family: "Overpass Mono", monospace;
+  border-radius: 9px;
 }
 
 .urlShortcut {

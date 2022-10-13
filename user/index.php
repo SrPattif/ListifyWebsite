@@ -134,7 +134,8 @@ if (isset($_GET['time'])) {
             $userName = explode(" ", $userName)[0];
             ?>
             <h2><span id="randomGreeting">E aí</span>, <b><?php echo ($userName); ?></b>! &#128075</h2>
-            Você está conectado com <b>Spotify</b>. <span class="disconnect">Sair</span><br><br>
+            Você está conectado com <b>Spotify</b>. <a href="https://www.spotify.com/account/apps/" target="_blank"
+                class="disconnect">Sair</a><br><br>
 
             <div class="timeSelector">
                 <ul>
@@ -246,6 +247,14 @@ if (isset($_GET['time'])) {
     </div>
 
     <div class="footer">
+        <p class="urlShortcut">
+            <a href="./">Início</a>
+            |
+            <a href="./transparency/">Transparência</a>
+            |
+            <a href="./transparency/privacy_policy/">Política de Privacidade</a>
+        </p>
+
         Desenvolvido por <span class="footer-clarify">Gustavo Antonio</span><br>
         <a href="https://www.instagram.com/ogustavo.a/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         <a href="https://twitter.com/ogustavo_a"><i class="fa fa-twitter" aria-hidden="true"></i></a>

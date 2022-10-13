@@ -69,27 +69,23 @@ body {
   margin: 1em;
 }
 
-.spotify-login-button {
-  margin: 0 4em 0 4em;
+.bold {
+  font-weight: bold;
+}
+
+h3 {
+  margin: 0;
+}
+
+.home-button {
+  margin: 2em 4em 0 4em;
   background-color: rgb(26, 141, 66);
   padding: 0.3em 1em 0.3em 1em;
   border-radius: 9px;
   cursor: pointer;
   color: white;
 }
-.spotify-login-button span {
-  font-weight: bold;
-}
-
-.transparency-button {
-  margin: 1em 4em 0 4em;
-  background-color: rgb(249, 250, 249);
-  padding: 0.3em 1em 0.3em 1em;
-  border-radius: 9px;
-  cursor: pointer;
-  color: rgb(0, 0, 0);
-}
-.transparency-button span {
+.home-button span {
   font-weight: bold;
 }
 

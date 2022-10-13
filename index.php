@@ -34,10 +34,23 @@
                     <i class="fa fa-spotify" aria-hidden="true"></i> Entrar com o <span>Spotify</span>
                 </div>
             </div>
+            <div class="button">
+                <div class="transparency-button" id="transparency-button">
+                    <i class="fa fa-info" aria-hidden="true"></i> Entenda os dados que coletamos</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="footer">
+        <p class="urlShortcut">
+            <a href="./">Início</a>
+            |
+            <a href="./transparency/">Transparência</a>
+            |
+            <a href="./transparency/privacy_policy/">Política de Privacidade</a>
+        </p>
+
         Desenvolvido por Gustavo Antonio<br>
         <a href="https://www.instagram.com/ogustavo.a/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         <a href="https://twitter.com/ogustavo_a"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -47,11 +60,17 @@
     </div>
 
     <script>
-        var login = document.getElementById('spotify-login');
+    var login = document.getElementById('spotify-login');
+    var transparency = document.getElementById('transparency-button');
 
-        login.addEventListener('click', () => {
-            window.location.href = "https://accounts.spotify.com/pt-BR/authorize?client_id=00fe8a888303400293a36a1fb82ec145&scope=user-read-private%20user-read-email%20user-top-read%20user-follow-read%20user-read-recently-played%20user-library-read%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state&response_type=code&redirect_uri=<?php echo($listifyRedirectURI); ?>"
-        })
+    login.addEventListener('click', () => {
+        window.location.href =
+            "https://accounts.spotify.com/pt-BR/authorize?client_id=00fe8a888303400293a36a1fb82ec145&scope=user-read-private%20user-read-email%20user-top-read%20user-follow-read%20user-read-recently-played%20user-library-read%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state&response_type=code&redirect_uri=<?php echo($listifyRedirectURI); ?>"
+    });
+
+    transparency.addEventListener('click', () => {
+        window.location.href = "./transparency/"
+    });
     </script>
 </body>
 
