@@ -174,45 +174,47 @@ require('../../controllers/utils.php');
                             $songUri = $topTracks->items[0]->uri;
                         ?>
 
-                        <img class="mostListenedImage" src="<?php echo ($songImage); ?>"
-                            alt="<?php echo ($songName); ?>" crossorigin="anonymous">
+                        <div id="mostListenedSongContainer" class="mostListenedSongContainer">
+                            <img class="mostListenedImage" src="<?php echo ($songImage); ?>"
+                                alt="<?php echo ($songName); ?>" crossorigin="anonymous">
 
-                        <br>
-                        <h2 class="songName"><?php echo ($songName); ?></h2>
-                        <h4 class="artistName">de <span class="bold"><?php echo ($songAuthor); ?></span></h1>
-                            <span class="artistDescription">é a música mais ouvida de <span class="userName"
-                                    id="usernameSpan"><?php echo ($userName); ?></span><?php
+                            <br>
+                            <h2 class="songName"><?php echo ($songName); ?></h2>
+                            <h4 class="artistName">de <span class="bold"><?php echo ($songAuthor); ?></span></h1>
+                        </div>
+                        <span class="artistDescription">é a música mais ouvida de <span class="userName"
+                                id="usernameSpan"><?php echo ($userName); ?></span><?php
                                 if ($timeType == "long_term") {
                             ?>!
 
-                                <?php
+                            <?php
                                 } else if ($timeType == "medium_term") {
                             ?>
 
-                                <br>nos últimos <span class="bold">6 meses</span>!
+                            <br>nos últimos <span class="bold">6 meses</span>!
 
-                                <?php
+                            <?php
                                 } else if ($timeType == "short_term") {
                             ?>
 
-                                <br>no <span class="bold">último mês</span>!
+                            <br>no <span class="bold">último mês</span>!
 
-                                <?php
+                            <?php
                                 }
                             ?></span>
-                            <?php
+                        <?php
                         }
                         ?>
-                            <hr>
+                        <hr>
 
 
-                            <table class="artistsList">
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                                <?php
+                        <table class="artistsList">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <?php
                             for ($i = 0; $i < 10; $i++) {
                                 $songName = $topTracks->items[$i]->name;
                                 $songAuthor = $topTracks->items[$i]->album->artists[0]->name;
@@ -220,31 +222,32 @@ require('../../controllers/utils.php');
                                 $songImage = $topTracks->items[$i]->album->images[0]->url;
                                 $songUri = $topTracks->items[$i]->uri;
                             ?>
-                                <tr>
-                                    <td class="bold tdPosition"><?php echo ($i + 1); ?>º</td>
-                                    <td>
-                                        <div class="songImage" onclick="changeTrack('<?php echo($songUri); ?>', '<?php echo($accessToken); ?>')">
-                                            <img src="<?php echo ($songImage); ?>" alt="<?php echo ($songName); ?>"
-                                                crossorigin="anonymous">
-                                            <i class="fa fa-play" aria-hidden="true"></i>
-                                        </div>
+                            <tr>
+                                <td class="bold tdPosition"><?php echo ($i + 1); ?>º</td>
+                                <td>
+                                    <div class="songImage"
+                                        onclick="changeTrack('<?php echo($songUri); ?>', '<?php echo($accessToken); ?>')">
+                                        <img src="<?php echo ($songImage); ?>" alt="<?php echo ($songName); ?>"
+                                            crossorigin="anonymous">
+                                        <i class="fa fa-play" aria-hidden="true"></i>
+                                    </div>
 
-                                    </td>
+                                </td>
 
-                                    <td><span class="bold"><?php echo (substrwords($songName, 25)); ?></span> de
-                                        <?php echo ($songAuthor); ?>
-                                    </td>
-                                </tr>
+                                <td><span class="bold"><?php echo (substrwords($songName, 25)); ?></span> de
+                                    <?php echo ($songAuthor); ?>
+                                </td>
+                            </tr>
 
-                                <?php
+                            <?php
                             }
                             ?>
-                            </table>
-                            <br>
-                            <div class="imageFooter">
-                                <span class="listifyInfo">Crie e compartilhe o seu!</span><br>
-                                <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
-                            </div>
+                        </table>
+                        <br>
+                        <div class="imageFooter" id="imageFooter">
+                            <span class="listifyInfo">Crie e compartilhe o seu!</span><br>
+                            <span class="listifyUrl"><b>listify.payoo.com.br</b></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,9 +274,19 @@ require('../../controllers/utils.php');
                         <li id="summerGradient">Summer</a></li>
                     </ul>
                 </div>
+
+                <br>
+                <span class="bold">Você quer que alguns elementos tenham fundinho borrado?</span><br>
+
+                <div class="customSelect" style="width:200px;">
+                    <ul>
+                        <li id="withBlurOption">Sim, por favor</a></li>
+                        <li id="withoutBlurOption" class="selected">Não, é feio</a></li>
+                    </ul>
+                </div>
+
                 <br>
                 <span class="bold">Quer mudar o seu nome?</span><br>
-
                 <input class="changeNameInput" id="nameInput" value="<?php echo ($userName); ?>" type="text">
             </div>
         </div>
@@ -335,6 +348,28 @@ require('../../controllers/utils.php');
             });
         });*/
     }
+    </script>
+
+    <script>
+    var withBlurOption = document.getElementById('withBlurOption');
+    var imageFooter = document.getElementById('imageFooter');
+    var mostListenedSongContainer = document.getElementById('mostListenedSongContainer');
+
+    withBlurOption.addEventListener('click', () => {
+        withBlurOption.classList.add("selected");
+        withoutBlurOption.classList.remove("selected");
+
+        imageFooter.classList.add("blur");
+        mostListenedSongContainer.classList.add("blur");
+    });
+
+    withoutBlurOption.addEventListener('click', () => {
+        withBlurOption.classList.remove("selected");
+        withoutBlurOption.classList.add("selected");
+
+        imageFooter.classList.remove("blur");
+        mostListenedSongContainer.classList.remove("blur");
+    });
     </script>
 
     <script>
@@ -412,6 +447,11 @@ require('../../controllers/utils.php');
             tata.success('Pronto!', 'A música já deve estar tocando. Aproveita :)', {
                 duration: 6000
             });
+        }).fail(function(error) {
+            tata.error('Não deu!',
+                'Não consegui fazer a música tocar. Pode ser que você não tenha um dispositivo ativo no momento!', {
+                    duration: 6000
+                });
         });
     }
     </script>
